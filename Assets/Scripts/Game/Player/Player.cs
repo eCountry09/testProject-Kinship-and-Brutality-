@@ -65,44 +65,15 @@ public class Player : MonoBehaviour
 
         if (controle.Player.Jump.WasPressedThisFrame())
         {
-            if(pulos >= 1)
-            {
-                rig.AddForce(Vector2.up * forcaPulo, ForceMode2D.Impulse);
-                pulos--;
-            } else if(ehChao)
-            {
-                pulos = 2;
-            }
-
-            /*if (pulos == 0 && ehChao)
-            {
-                pulos = 2;
-            }*/
+            rig.AddForce(Vector2.up * forcaPulo, ForceMode2D.Impulse);
         }
 
         ehChao = Physics2D.OverlapCircle(ehPe.position, raioPe, chao);
-        animar();
     }
 
     private void FixedUpdate() //executa e um valor fixo, 50 X/ segundo
     {
         rig.linearVelocityX = mover.x * velocidade;
-    }
-
-    void animar()
-    {
-        animator.SetFloat("andar", Mathf.Abs(rig.linearVelocityX));
-
-        if(ehChao)
-        {
-            animator.SetBool("pular", false);
-            animator.SetBool("cair", false);
-
-        } else if(rig.linearVelocity.y < -0.1f)
-        {
-            animator.SetBool("pular", true);
-            animator.SetBool("cair", true);
-        }
     }
 
     void Atacar()
