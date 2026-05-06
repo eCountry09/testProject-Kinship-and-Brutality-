@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update() //executa a cada frame
     {
+        // Movimentação.
         mover = controle.Player.Move.ReadValue<Vector2>();
 
         if(mover.x > 0.1f)
@@ -63,12 +64,20 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Euler(Mathf.Abs(mover.x), 0, 0);
         }
 
+        //Pulo.
         if (controle.Player.Jump.WasPressedThisFrame())
         {
             rig.AddForce(Vector2.up * forcaPulo, ForceMode2D.Impulse);
         }
 
+        // Verificação para saber se o Player está no chão.
         ehChao = Physics2D.OverlapCircle(ehPe.position, raioPe, chao);
+
+        //Rotação do Sprite.
+        if (mover.x != 0)
+        {
+            transform.localScale = new Vector3(Mathf.Sign(mover.x), 1, 1);
+        }
     }
 
     private void FixedUpdate() //executa e um valor fixo, 50 X/ segundo
