@@ -10,6 +10,9 @@ public class Sistema_inimigos : MonoBehaviour
     public Transform playerPosition;
     public float enemieVelocity;
 
+    [Header("Game Manager")]
+    public GameObject gm;
+
     [Header("Gatilho")]
     public bool activeEnemy;
     SpriteRenderer spriteRenderer;
@@ -46,6 +49,11 @@ public class Sistema_inimigos : MonoBehaviour
                 spriteRenderer.flipX = true;
             }
         }
+    }
+
+    public void ReceberDano()
+    {
+        gameObject.transform.position = new Vector2(transform.position.x + 5, transform.position.y);
     }
 
     public void ActiveEnemy()
