@@ -119,6 +119,81 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &119769431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 119769432}
+  m_Layer: 0
+  m_Name: pontoAtaque
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &119769432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119769431}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 850124738}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &296959133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 296959135}
+  - component: {fileID: 296959134}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &296959134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296959133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afe12723d156b04459bebf58b7bba7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GM
+--- !u!4 &296959135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296959133}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.98355, y: -0.81943, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &361964157
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +611,7 @@ GameObject:
   - component: {fileID: 850124738}
   - component: {fileID: 850124739}
   - component: {fileID: 850124742}
+  - component: {fileID: 850124743}
   - component: {fileID: 850124741}
   - component: {fileID: 850124740}
   m_Layer: 0
@@ -558,6 +634,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 119769432}
   - {fileID: 1356683784}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -702,6 +779,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   raioPe: 0.3
+--- !u!114 &850124743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850124737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a328a14ab027a03458d7e153b1b25407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ataqueJogador
+  pontoAtaque: {fileID: 119769432}
 --- !u!1 &851267809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,7 +1254,7 @@ GameObject:
   - component: {fileID: 1581627774}
   m_Layer: 0
   m_Name: Inimigo 1
-  m_TagString: Untagged
+  m_TagString: Inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1320,10 +1410,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85df045fbc63ff34a9a92fdef8fa3494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sistema_inimigos
-  enemieLife: 0
+  enemieLife: 3
   enemieSpeed: 0
   playerPosition: {fileID: 850124738}
   enemieVelocity: 3
+  gm: {fileID: 296959133}
   activeEnemy: 0
 --- !u!1 &1805202678
 GameObject:
@@ -1652,3 +1743,4 @@ SceneRoots:
   - {fileID: 863641554}
   - {fileID: 1581627777}
   - {fileID: 1554544876}
+  - {fileID: 296959135}

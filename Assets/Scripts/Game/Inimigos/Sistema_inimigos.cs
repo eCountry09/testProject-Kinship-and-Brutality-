@@ -54,6 +54,12 @@ public class Sistema_inimigos : MonoBehaviour
     public void ReceberDano()
     {
         gameObject.transform.position = new Vector2(transform.position.x + 5, transform.position.y);
+        enemieLife--;
+
+        if(enemieLife == 0)
+        {
+            GameObject.Destroy(gameObject);
+        }
     }
 
     public void ActiveEnemy()
