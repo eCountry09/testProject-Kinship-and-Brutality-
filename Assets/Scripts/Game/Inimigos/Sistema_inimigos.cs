@@ -17,6 +17,10 @@ public class Sistema_inimigos : MonoBehaviour
     public bool activeEnemy;
     SpriteRenderer spriteRenderer;
 
+    [Header("Vida")]
+    public GameObject vida;
+    float pctgmVida;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,6 +37,12 @@ public class Sistema_inimigos : MonoBehaviour
     {
         // Invocando a Função para Seguir o Jogador.
         SeguirJogador();
+    }
+
+    void atualizarVida()
+    {
+        vida.transform.localScale = new Vector2(vida.transform.localScale.x / enemieLife, vida.transform.localScale.y);
+        vida.transform.localScale = new Vector2(vida.transform.localScale.x * (enemieLife - 1), vida.transform.localScale.y);
     }
 
     void SeguirJogador()
@@ -53,10 +63,11 @@ public class Sistema_inimigos : MonoBehaviour
 
     public void ReceberDano()
     {
-        gameObject.transform.position = new Vector2(transform.position.x + 5, transform.position.y);
+        gameObject.transform.position = new Vector2(transform.position.x + 3, transform.position.y);
         enemieLife--;
+        atualizarVida();
 
-        if(enemieLife == 0)
+        if (enemieLife == 0)
         {
             GameObject.Destroy(gameObject);
         }

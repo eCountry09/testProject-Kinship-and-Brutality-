@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rig;
     Vector2 mover;
     PlayerControle controle;
+    public ataqueJogador atqJogador;
 
     [Header("Pulo")]
     public float forcaPulo = 6f;

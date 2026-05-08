@@ -5,6 +5,8 @@ public class ataqueJogador : MonoBehaviour
 {
     [SerializeField]
     private Transform pontoAtaque;
+
+    [SerializeField]
     private float raioAtaque;
     bool bAttack;
 
@@ -17,7 +19,7 @@ public class ataqueJogador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.X) && bAttack)
+        if(Input.GetKeyDown(KeyCode.X))
         {
             atacar();
         }
@@ -25,11 +27,8 @@ public class ataqueJogador : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if(this.pontoAtaque != null)
-        {
-            Gizmos.DrawWireSphere(this.pontoAtaque.position, this.raioAtaque);
-            Gizmos.color = Color.red;
-        }
+        Gizmos.DrawWireSphere(this.pontoAtaque.position, this.raioAtaque);
+        Gizmos.color = Color.red;
     }
 
     void atacar()
@@ -38,16 +37,12 @@ public class ataqueJogador : MonoBehaviour
 
         if(colliderInimigo != null)
         {
-            bAttack = true;
             Sistema_inimigos inimigo = colliderInimigo.GetComponent<Sistema_inimigos>();
 
             if(inimigo != null)
             {
                 inimigo.ReceberDano();
             }
-        } else
-        {
-            bAttack = false;
         }
     }
 }
