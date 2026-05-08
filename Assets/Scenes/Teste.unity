@@ -1419,6 +1419,7 @@ MonoBehaviour:
   gm: {fileID: 296959133}
   activeEnemy: 0
   vida: {fileID: 670699347}
+  rVida: {fileID: 1063176751}
 --- !u!1 &1805202678
 GameObject:
   m_ObjectHideFlags: 0
