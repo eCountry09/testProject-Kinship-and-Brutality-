@@ -3,7 +3,8 @@ using UnityEngine;
 public class Sistema_inimigos : MonoBehaviour
 {
     [Header("Informações")]
-    public int enemieLife;
+    public float enemieLife;
+    float maxEnemy = 100f;
     public float enemieSpeed;
 
     [Header("Movimentação")]
@@ -19,6 +20,7 @@ public class Sistema_inimigos : MonoBehaviour
 
     [Header("Vida")]
     public GameObject vida;
+    public Transform rVida;
     float pctgmVida;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -41,8 +43,7 @@ public class Sistema_inimigos : MonoBehaviour
 
     void atualizarVida()
     {
-        vida.transform.localScale = new Vector2(vida.transform.localScale.x / enemieLife, vida.transform.localScale.y);
-        vida.transform.localScale = new Vector2(vida.transform.localScale.x * (enemieLife - 1), vida.transform.localScale.y);
+        
     }
 
     void SeguirJogador()
@@ -61,10 +62,11 @@ public class Sistema_inimigos : MonoBehaviour
         }
     }
 
-    public void ReceberDano()
+    public void ReceberDano(int dano)
     {
         gameObject.transform.position = new Vector2(transform.position.x + 3, transform.position.y);
         enemieLife--;
+
         atualizarVida();
 
         if (enemieLife == 0)
