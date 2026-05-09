@@ -4,29 +4,25 @@ public class Sistema_inimigos : MonoBehaviour
 {
     [Header("Informações")]
     public float enemieLife;
-    float maxEnemy = 100f;
-    public float enemieSpeed;
+    public BarraVida bVida;
 
-    [Header("Movimentação")]
+    [Header("Movimentação e Ataque")]
     public Transform playerPosition;
     public float enemieVelocity;
+    public float enemieAttack;
+    public Player player;
 
     [Header("Game Manager")]
-    public GameObject gm;
+    public GM gm;
 
     [Header("Gatilho")]
-    public bool activeEnemy;
+    public AtivacaoInimigos ativacao;
     SpriteRenderer spriteRenderer;
-
-    [Header("Vida")]
-    public GameObject vida;
-    public Transform rVida;
-    float pctgmVida;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        activeEnemy = false;
+        bVida.actuallyEnemy = enemieLife;
     }
 
     private void Awake()
@@ -41,14 +37,9 @@ public class Sistema_inimigos : MonoBehaviour
         SeguirJogador();
     }
 
-    void atualizarVida()
-    {
-        
-    }
-
     void SeguirJogador()
     {
-        if(activeEnemy)
+        if(ativacao.activeEnemy)
         {
             transform.position = Vector2.MoveTowards(transform.position, playerPosition.position, enemieVelocity * Time.deltaTime);
 
@@ -62,12 +53,12 @@ public class Sistema_inimigos : MonoBehaviour
         }
     }
 
-    public void ReceberDano(int dano)
+    public void ReceberDano()
     {
         gameObject.transform.position = new Vector2(transform.position.x + 3, transform.position.y);
         enemieLife--;
 
-        atualizarVida();
+        bVida.atualizarBarra(enemieLife);
 
         if (enemieLife == 0)
         {
@@ -75,13 +66,12 @@ public class Sistema_inimigos : MonoBehaviour
         }
     }
 
-    public void ActiveEnemy()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        activeEnemy = true;
-    }
-
-    public void DesactiveEnemy()
-    {
-        activeEnemy = false;
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            playerPosition.position = new Vector2(playerPosition.position.x - 3, playerPosition.position.y);
+            gm.perderVida(enemieAttack);
+        }
     }
 }

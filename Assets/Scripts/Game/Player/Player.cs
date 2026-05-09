@@ -84,13 +84,10 @@ public class Player : MonoBehaviour
     private void FixedUpdate() //executa e um valor fixo, 50 X/ segundo
     {
         rig.linearVelocityX = mover.x * velocidade;
-    }
 
-    void Atacar()
-    {
-        if(Input.GetKeyDown(KeyCode.Z))
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && controle.Player.Move.WasPressedThisFrame())
         {
-            
+            rig.linearVelocityX = mover.x * velocidade * 5;
         }
     }
 }

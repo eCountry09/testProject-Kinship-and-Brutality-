@@ -8,7 +8,9 @@ public class ataqueJogador : MonoBehaviour
 
     [SerializeField]
     private float raioAtaque;
+
     bool bAttack;
+    PlayerControle controller;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,7 +21,7 @@ public class ataqueJogador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.X))
+        if(Input.GetKeyDown(KeyCode.Z))
         {
             atacar();
         }
