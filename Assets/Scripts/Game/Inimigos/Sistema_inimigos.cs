@@ -4,7 +4,7 @@ public class Sistema_inimigos : MonoBehaviour
 {
     [Header("Informações")]
     public float enemieLife;
-    public BarraVida bVida;
+    BarraVida bVida;
 
     [Header("Movimentação e Ataque")]
     public Transform playerPosition;
@@ -18,10 +18,15 @@ public class Sistema_inimigos : MonoBehaviour
     [Header("Gatilho")]
     public AtivacaoInimigos ativacao;
     SpriteRenderer spriteRenderer;
+    public bool activeEnemy;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //Parâmetros para a Barra.
+        bVida = GetComponentInChildren<BarraVida>();
+
+        // Inicializaão da Barra.
         bVida.actuallyEnemy = enemieLife;
     }
 
@@ -39,7 +44,7 @@ public class Sistema_inimigos : MonoBehaviour
 
     void SeguirJogador()
     {
-        if(ativacao.activeEnemy)
+        if(activeEnemy)
         {
             transform.position = Vector2.MoveTowards(transform.position, playerPosition.position, enemieVelocity * Time.deltaTime);
 

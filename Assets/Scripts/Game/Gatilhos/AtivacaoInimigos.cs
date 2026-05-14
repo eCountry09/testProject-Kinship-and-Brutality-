@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class AtivacaoInimigos : MonoBehaviour
 {
-    public bool activeEnemy;
+    public GameObject[] inimigos;
+    public GameObject gPainel;
+    public GameObject rPainel;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,16 +14,35 @@ public class AtivacaoInimigos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        activeEnemy();
+        desactiveEnemy();
     }
 
-    public void ActiveEnemy()
+    public void activeEnemy()
     {
-        activeEnemy = true;
+        BoxCollider2D colliderG = gPainel.GetComponent<BoxCollider2D>();
+
+        if(colliderG.gameObject.CompareTag("Player"))
+        {
+            for(int i = 1; i <= inimigos.Length; i++)
+            {
+                Sistema_inimigos sEnemies = inimigos[i].GetComponent<Sistema_inimigos>();
+                sEnemies.activeEnemy = true;
+            }
+        }
     }
 
-    public void DesactiveEnemy()
+    public void desactiveEnemy()
     {
-        activeEnemy = false;
+        BoxCollider2D colliderR = rPainel.GetComponent<BoxCollider2D>();
+
+        if (colliderR.gameObject.CompareTag("Player"))
+        {
+            for (int i = 1; i <= inimigos.Length; i++)
+            {
+                Sistema_inimigos sEnemies = inimigos[i].GetComponent<Sistema_inimigos>();
+                sEnemies.activeEnemy = false;
+            }
+        }
     }
 }
