@@ -16,7 +16,6 @@ public class Sistema_inimigos : MonoBehaviour
     public GM gm;
 
     [Header("Gatilho")]
-    public AtivacaoInimigos ativacao;
     SpriteRenderer spriteRenderer;
     public bool activeEnemy;
 

@@ -415,6 +415,7 @@ GameObject:
   - component: {fileID: 361964158}
   - component: {fileID: 361964160}
   - component: {fileID: 361964161}
+  - component: {fileID: 361964162}
   m_Layer: 0
   m_Name: active
   m_TagString: Untagged
@@ -485,7 +486,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.011662006, b: 1, a: 0}
+  m_Color: {r: 0, g: 0.011662006, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -541,6 +542,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &361964162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361964157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb691aac4ddc2547af4f1e4a8d118dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActiveEnemy
+  inimigos:
+  - {fileID: 1581627773}
+  - {fileID: 1222826234}
 --- !u!1 &478897958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,7 +1826,6 @@ MonoBehaviour:
   enemieAttack: 1
   player: {fileID: 850124742}
   gm: {fileID: 296959134}
-  ativacao: {fileID: 1828248818}
   activeEnemy: 0
 --- !u!212 &1222826238
 SpriteRenderer:
@@ -2614,7 +2629,7 @@ Transform:
   m_GameObject: {fileID: 1581627773}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.75, y: -2.85, z: 0}
+  m_LocalPosition: {x: 5.68, y: -2.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2640,7 +2655,6 @@ MonoBehaviour:
   enemieAttack: 0.5
   player: {fileID: 850124742}
   gm: {fileID: 296959134}
-  ativacao: {fileID: 1828248818}
   activeEnemy: 0
 --- !u!1 &1589833326
 GameObject:
@@ -2972,55 +2986,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1828248817
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1828248819}
-  - component: {fileID: 1828248818}
-  m_Layer: 0
-  m_Name: AtivacaoInimigos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1828248818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1828248817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa48678e883f78d4aa233a0c8d68db12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AtivacaoInimigos
-  inimigos:
-  - {fileID: 1581627773}
-  - {fileID: 1222826234}
-  gPainel: {fileID: 361964157}
-  rPainel: {fileID: 2074576276}
---- !u!4 &1828248819
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1828248817}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.27983, y: 1.79358, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2033550015
 GameObject:
   m_ObjectHideFlags: 0
@@ -3168,6 +3133,7 @@ GameObject:
   - component: {fileID: 2074576277}
   - component: {fileID: 2074576279}
   - component: {fileID: 2074576280}
+  - component: {fileID: 2074576281}
   m_Layer: 0
   m_Name: desactive
   m_TagString: Untagged
@@ -3238,7 +3204,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3294,6 +3260,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2074576281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074576276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ae43a27a049b141a1646344b96b7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DesactiveEnemy
+  inimigos:
+  - {fileID: 1581627773}
+  - {fileID: 1222826234}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3309,4 +3290,3 @@ SceneRoots:
   - {fileID: 613539005}
   - {fileID: 1581627777}
   - {fileID: 1222826239}
-  - {fileID: 1828248819}
