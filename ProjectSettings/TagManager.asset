@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - Inimigo
+  - Floor
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - "Ch\xE3o"
+  - Floor
   - Water
   - UI
   - 

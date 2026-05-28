@@ -10,14 +10,14 @@ public class cerveja : MonoBehaviour
 
     public float cooldown;
     public GameObject garrafa;
-    public Rigidbody2D garrafaRB;
-    float garrafaThrowForce = 20f;
+    public Transform throwerPos;
+
+    public GameObject brokenCerveja;
 
     SpriteRenderer spriteRenderer;
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        garrafaRB = garrafa.GetComponent<Rigidbody2D>();
         cooldown = 4;
     }
 
@@ -55,7 +55,7 @@ public class cerveja : MonoBehaviour
         if (cooldown <= 0)
         {
             cooldown = 4;
-            Instantiate(garrafa, transform.position, transform.rotation);
+            Instantiate(garrafa, throwerPos.position, transform.rotation);
         }
     }
 

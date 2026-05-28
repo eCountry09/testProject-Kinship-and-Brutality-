@@ -1,11 +1,14 @@
+using System.Collections;
 using UnityEngine;
 
 public class fisicaCerveja : MonoBehaviour
 {
     Rigidbody2D rb;
-    public float force = 20f;
-    public GameObject myObject;
+    public float force = 7f;
+    public Transform throwerPos;
     public Transform playerPos;
+
+    public GameObject brokenCerveja;
 
     void Start()
     {
@@ -14,23 +17,39 @@ public class fisicaCerveja : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (playerPos.position.x > myObject.transform.position.x) //jogador tá na direita de mim
+        if (playerPos.position.x > throwerPos.transform.position.x) //jogador tï¿½ na direita de mim (agora consertado)
         {
-            rb.AddForce(transform.position += transform.up * Time.deltaTime * force);
+            rb.linearVelocity = Vector2.zero;
+            rb.AddForce(transform.position += transform.right * Time.deltaTime * force);
         }
 
-        if (playerPos.position.x < myObject.transform.position.x) //jogador ta na esquerda de mim (funcionando!)
+        if (playerPos.position.x < throwerPos.transform.position.x) //jogador ta na esquerda de mim (funcionando!)
         {
-            rb.AddForce(transform.position += transform.up * Time.deltaTime * force);
+            rb.linearVelocity = Vector2.zero;
+            rb.AddForce(transform.position += -transform.right * Time.deltaTime * force);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Chão"))
+        try
         {
-            Destroy(myObject);
+            if (collision.collider != null && collision.collider.CompareTag("Player") || collision.collider.CompareTag("Floor"))
+            {
+                StartCoroutine(destroyCerveja());
+            }
         }
+        catch (System.Exception e)
+        {
+            Debug.LogError("Collision2D error: " + e.Message);
+        }
+    }
+    IEnumerator destroyCerveja()
+    {
+      //rb.bodyType = RigidbodyType2D.Static;
+        force = 0;
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
     }
 }
 
