@@ -43,7 +43,7 @@ public class ataqueJogador : MonoBehaviour
 
             if(inimigo != null)
             {
-                inimigo.ReceberDano();
+                inimigo.ReceberDano();                                                                                                               //drake e josh
             }
         }
     }
