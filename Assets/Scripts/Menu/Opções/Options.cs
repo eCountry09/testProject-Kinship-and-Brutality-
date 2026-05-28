@@ -16,17 +16,7 @@ public class Options : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (options.onClick != null && optionsOpen == false)
-        {
-            optionsOpen = true;
-            painelConfigs.SetActive(true);
-        }
-
-        if (options.onClick != null && optionsOpen == true)
-        {
-            optionsOpen = false;
-            painelConfigs.SetActive(false);
-        }*/
+     
     }
 
     public void abrirPaineis(GameObject painel)

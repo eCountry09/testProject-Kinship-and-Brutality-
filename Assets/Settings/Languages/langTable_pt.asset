@@ -38,6 +38,10 @@ MonoBehaviour:
     m_Localized: Idioma
     m_Metadata:
       m_Items: []
+  - m_Id: 3999418740436992
+    m_Localized: "M\xFAsica de Fundo"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

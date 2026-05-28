@@ -35,6 +35,10 @@ MonoBehaviour:
     m_Key: txtTitle
     m_Metadata:
       m_Items: []
+  - m_Id: 3999418740436992
+    m_Key: txtBGM
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
