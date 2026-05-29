@@ -557,6 +557,8 @@ MonoBehaviour:
   inimigos:
   - {fileID: 1581627773}
   - {fileID: 1222826234}
+  outimigos:
+  - {fileID: 797100752}
 --- !u!1 &478897958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,6 +1012,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BarraVida
   actuallyEnemy: 0
   enemie: {fileID: 1581627777}
+--- !u!1 &797100752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 797100753}
+  m_Layer: 0
+  m_Name: Inimigos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &797100753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797100752}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.65001, y: 0.77019, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1581627777}
+  - {fileID: 1222826239}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &823326766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1894,13 +1929,13 @@ Transform:
   m_GameObject: {fileID: 1222826234}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.55, y: -3.33, z: 0}
+  m_LocalPosition: {x: 2.89999, y: -4.10019, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 11615470}
   - {fileID: 1712455837}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 797100753}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1247297003
 GameObject:
@@ -2629,13 +2664,13 @@ Transform:
   m_GameObject: {fileID: 1581627773}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.68, y: -2.84, z: 0}
+  m_LocalPosition: {x: 1.0299897, y: -3.61019, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 670699348}
   - {fileID: 1063176751}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 797100753}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1581627778
 MonoBehaviour:
@@ -3288,5 +3323,4 @@ SceneRoots:
   - {fileID: 1554544876}
   - {fileID: 296959135}
   - {fileID: 613539005}
-  - {fileID: 1581627777}
-  - {fileID: 1222826239}
+  - {fileID: 797100753}

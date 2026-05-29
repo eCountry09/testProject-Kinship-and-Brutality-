@@ -3,6 +3,7 @@ using UnityEngine;
 public class ActiveEnemy : MonoBehaviour
 {
     public GameObject[] inimigos;
+    public GameObject[] outimigos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,5 +26,10 @@ public class ActiveEnemy : MonoBehaviour
                 sEnemies.activeEnemy = true;
             }
         }
+    }
+
+    public void reiniciarObjEnemies()
+    {
+
     }
 }
