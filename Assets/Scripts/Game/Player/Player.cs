@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.RuleTile.TilingRuleOutput;
@@ -79,6 +81,11 @@ public class Player : MonoBehaviour
         {
             transform.localScale = new Vector3(Mathf.Sign(mover.x), 1, 1);
         }
+
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            StartCoroutine(digitar());
+        }
     }
 
     private void FixedUpdate() //executa e um valor fixo, 50 X/ segundo
@@ -89,5 +96,11 @@ public class Player : MonoBehaviour
         {
             rig.linearVelocityX = mover.x * velocidade * 5;
         }
+    }
+
+    IEnumerator digitar()
+    {
+        yield return new WaitForSeconds(1);
+        Debug.Log("Olá!");
     }
 }
