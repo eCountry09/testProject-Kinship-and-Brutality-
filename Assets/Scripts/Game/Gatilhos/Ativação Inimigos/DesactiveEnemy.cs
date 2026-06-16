@@ -4,7 +4,8 @@ using System.Collections.Generic;
 public class DesactiveEnemy : MonoBehaviour
 {
     public List<GameObject> inimigos;
-    public List<GameObject> outInimigos;
+    public AgrupamentoInimigos agrupamento;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,6 +18,11 @@ public class DesactiveEnemy : MonoBehaviour
         
     }
 
+    void Awake()
+    {
+        inimigos = agrupamento.inimigos;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -24,31 +30,12 @@ public class DesactiveEnemy : MonoBehaviour
             foreach (GameObject obj in inimigos)
             {
                 Sistema_inimigos sEnemies = obj.GetComponent<Sistema_inimigos>();
-                sEnemies.activeEnemy = false;
-            }
-        }
-    }
 
-    public void reiniciarObjEnemies()
-    {
-        outInimigos = new List<GameObject>();
-
-        foreach (GameObject objeto in inimigos)
-        {
-            if (objeto == null)
-            {
-                inimigos.Remove(objeto);
-
-                foreach (GameObject newObject in inimigos)
+                if(sEnemies != null)
                 {
-                    if (newObject != null)
-                    {
-                        outInimigos.Add(newObject);
-                    }
+                    sEnemies.activeEnemy = false;
                 }
             }
         }
-
-        inimigos = outInimigos;
     }
 }

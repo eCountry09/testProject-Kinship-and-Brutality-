@@ -19,16 +19,11 @@ public class BarraVida : MonoBehaviour
         
     }
 
-    public void calcularBarra()
-    {
-        vidaCalc = maxEnemy / actuallyEnemy;
-    }
-
     public void atualizarBarra(float vida)
     {
         vidaCalc = maxEnemy / actuallyEnemy;
 
         transform.localScale = new Vector2(vidaCalc * vida, transform.localScale.y);
-        transform.position = new Vector2(enemie.localPosition.x - vidaCalc, enemie.localPosition.y + 0.45f);
+        transform.position = new Vector2(enemie.position.x - vidaCalc, enemie.position.y + 0.45f);
     }
 }

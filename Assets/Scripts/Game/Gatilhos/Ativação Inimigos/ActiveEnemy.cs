@@ -5,8 +5,7 @@ using System.Collections.Generic;
 public class ActiveEnemy : MonoBehaviour
 {
     public List<GameObject> inimigos;
-    public List<GameObject> outInimigos;
-    public GameObject Enemies;
+    public AgrupamentoInimigos agrupamento;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,6 +18,11 @@ public class ActiveEnemy : MonoBehaviour
         
     }
 
+    void Awake()
+    {
+        inimigos = agrupamento.inimigos;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -28,28 +32,6 @@ public class ActiveEnemy : MonoBehaviour
                 Sistema_inimigos sEnemies = obj.GetComponent<Sistema_inimigos>();
                 sEnemies.activeEnemy = true;
             }
-        }
-    }
-
-    public void reiniciarObjEnemies()
-    {
-        outInimigos = new List<GameObject>();
-        
-        foreach (GameObject objeto in inimigos)
-        {
-            if(objeto == null)
-            {
-                inimigos.Remove(objeto);
-                outInimigos = new List<GameObject>();
-
-                foreach (GameObject newObject in inimigos)
-                {
-                    outInimigos.Add(newObject);
-                }
-            }
-
-            inimigos = new List<GameObject>();
-            inimigos = outInimigos;
         }
     }
 }

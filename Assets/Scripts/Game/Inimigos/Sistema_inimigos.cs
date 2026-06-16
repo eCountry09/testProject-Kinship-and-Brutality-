@@ -16,8 +16,7 @@ public class Sistema_inimigos : MonoBehaviour
     public GM gm;
 
     [Header("Gatilho")]
-    public ActiveEnemy actEnemy;
-    public DesactiveEnemy desactEnemy;
+    public AgrupamentoInimigos agrupamento;
     SpriteRenderer spriteRenderer;
     public bool activeEnemy;
 
@@ -61,7 +60,7 @@ public class Sistema_inimigos : MonoBehaviour
 
     public void ReceberDano()
     {
-        gameObject.transform.position = new Vector2(transform.position.x + 3, transform.position.y);
+        transform.position = new Vector2(transform.position.x + 3, transform.position.y);
         enemieLife--;
 
         bVida.atualizarBarra(enemieLife);
@@ -69,8 +68,7 @@ public class Sistema_inimigos : MonoBehaviour
         if (enemieLife == 0)
         {
             GameObject.Destroy(gameObject);
-            actEnemy.reiniciarObjEnemies();
-            desactEnemy.reiniciarObjEnemies();
+            agrupamento.reiniciarObjEnemies(gameObject);
         }
     }
 
