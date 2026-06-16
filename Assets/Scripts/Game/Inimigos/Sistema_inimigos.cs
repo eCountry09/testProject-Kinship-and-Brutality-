@@ -16,6 +16,8 @@ public class Sistema_inimigos : MonoBehaviour
     public GM gm;
 
     [Header("Gatilho")]
+    public ActiveEnemy actEnemy;
+    public DesactiveEnemy desactEnemy;
     SpriteRenderer spriteRenderer;
     public bool activeEnemy;
 
@@ -67,6 +69,8 @@ public class Sistema_inimigos : MonoBehaviour
         if (enemieLife == 0)
         {
             GameObject.Destroy(gameObject);
+            actEnemy.reiniciarObjEnemies();
+            desactEnemy.reiniciarObjEnemies();
         }
     }
 

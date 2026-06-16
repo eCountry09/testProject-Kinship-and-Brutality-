@@ -1,8 +1,10 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class DesactiveEnemy : MonoBehaviour
 {
-    public GameObject[] inimigos;
+    public List<GameObject> inimigos;
+    public List<GameObject> outInimigos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,5 +27,28 @@ public class DesactiveEnemy : MonoBehaviour
                 sEnemies.activeEnemy = false;
             }
         }
+    }
+
+    public void reiniciarObjEnemies()
+    {
+        outInimigos = new List<GameObject>();
+
+        foreach (GameObject objeto in inimigos)
+        {
+            if (objeto == null)
+            {
+                inimigos.Remove(objeto);
+
+                foreach (GameObject newObject in inimigos)
+                {
+                    if (newObject != null)
+                    {
+                        outInimigos.Add(newObject);
+                    }
+                }
+            }
+        }
+
+        inimigos = outInimigos;
     }
 }

@@ -1,9 +1,12 @@
+using NUnit.Framework;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ActiveEnemy : MonoBehaviour
 {
-    public GameObject[] inimigos;
-    public GameObject[] outimigos;
+    public List<GameObject> inimigos;
+    public List<GameObject> outInimigos;
+    public GameObject Enemies;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,6 +33,23 @@ public class ActiveEnemy : MonoBehaviour
 
     public void reiniciarObjEnemies()
     {
+        outInimigos = new List<GameObject>();
+        
+        foreach (GameObject objeto in inimigos)
+        {
+            if(objeto == null)
+            {
+                inimigos.Remove(objeto);
+                outInimigos = new List<GameObject>();
 
+                foreach (GameObject newObject in inimigos)
+                {
+                    outInimigos.Add(newObject);
+                }
+            }
+
+            inimigos = new List<GameObject>();
+            inimigos = outInimigos;
+        }
     }
 }
