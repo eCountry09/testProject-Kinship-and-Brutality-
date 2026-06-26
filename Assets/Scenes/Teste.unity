@@ -960,6 +960,7 @@ GameObject:
   - component: {fileID: 774640231}
   - component: {fileID: 774640230}
   - component: {fileID: 774640229}
+  - component: {fileID: 774640232}
   m_Layer: 0
   m_Name: Zoom Astrounata
   m_TagString: Untagged
@@ -984,13 +985,14 @@ MonoBehaviour:
   - Sou o Zoom Astronauta! Hehe
   dialogueIndex: 0
   dialoguePanel: {fileID: 1204961721}
-  dialogueText: {fileID: 0}
-  nameNpc: {fileID: 0}
-  imageNpc: {fileID: 0}
-  spriteNpc: {fileID: 0}
+  dialogueText: {fileID: 1646752603}
+  nameNpc: {fileID: 1395457806}
+  imageNpc: {fileID: 1446314914}
+  spriteNpc: {fileID: -6367560908665664636, guid: 40de9a8703e2e5a47882b0b86451c741, type: 3}
   readyToSpeak: 0
   startDialogue: 0
-  player: {fileID: 0}
+  speedPlayer: 0
+  player: {fileID: 850124742}
 --- !u!212 &774640230
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1064,6 +1066,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &774640232
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774640228}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.10554862, y: -0.21589601}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.78890276, y: 0.63537574}
+  m_EdgeRadius: 0
 --- !u!1 &797100752
 GameObject:
   m_ObjectHideFlags: 0
