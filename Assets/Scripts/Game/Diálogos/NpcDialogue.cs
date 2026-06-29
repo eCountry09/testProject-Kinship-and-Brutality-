@@ -91,12 +91,4 @@ public class NpcDialogue : MonoBehaviour
             readyToSpeak = true;
         }
     }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            readyToSpeak = false;
-        }
-    }
 }
