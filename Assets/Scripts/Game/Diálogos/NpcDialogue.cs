@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System;
 
 public class NpcDialogue : MonoBehaviour
 {
@@ -59,6 +60,7 @@ public class NpcDialogue : MonoBehaviour
             startDialogue = false;
             dialogueIndex = 0;
             player.velocidade = speedPlayer;
+            readyToSpeak = false;
         }
     }
 
