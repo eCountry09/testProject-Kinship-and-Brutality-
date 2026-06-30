@@ -14,6 +14,7 @@ public class MoverNPC : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        rg = GetComponent <Rigidbody2D>();
         destino = pontoB.position;
     }
 
@@ -27,15 +28,15 @@ public class MoverNPC : MonoBehaviour
             if(transform.position == pontoB.position)
             {
                 rg.linearVelocityX = 0f;
-                npcDialogueAnim.readyToSpeak = true;
-                //StartCoroutine(iniciarDialogo());
+                StartCoroutine(iniciarDialogo());
             }
         }
     }
 
-    /*IEnumerator iniciarDialogo()
+    IEnumerator iniciarDialogo()
     {
         yield return new WaitForSeconds(2);
         npcDialogueAnim.readyToSpeak = true;
-    }*/
+        //npcDialogueAnim.readyToSpeak = true;
+    }
 }

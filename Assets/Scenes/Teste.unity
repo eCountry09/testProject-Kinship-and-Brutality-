@@ -1398,7 +1398,7 @@ MonoBehaviour:
   - "Ol\xE1, tudo bem?"
   - Sou o Zoom Astronauta! Hehe
   dialogueIndex: 0
-  dialoguePanel: {fileID: 1204961721}
+  dialoguePanel: {fileID: 1941050460}
   dialogueText: {fileID: 1646752603}
   nameNpc: {fileID: 1395457806}
   imageNpc: {fileID: 1446314914}
@@ -1772,7 +1772,7 @@ Transform:
   m_GameObject: {fileID: 850124737}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.67, y: -2.67, z: 0}
+  m_LocalPosition: {x: 1.74, y: -2.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2037,7 +2037,7 @@ Transform:
   m_GameObject: {fileID: 851267809}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.67, y: -2.67, z: -10}
+  m_LocalPosition: {x: 1.74, y: -2.36, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2208,7 +2208,7 @@ Transform:
   m_GameObject: {fileID: 863641551}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.67, y: -2.67, z: -10}
+  m_LocalPosition: {x: 1.74, y: -2.36, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3193,6 +3193,7 @@ MonoBehaviour:
   speedPlayer: 0
   player: {fileID: 850124742}
   rg: {fileID: 1299878933}
+  npc: {fileID: 1299878936}
 --- !u!114 &1299878936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5257,7 +5258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1941050461
 RectTransform:
   m_ObjectHideFlags: 0

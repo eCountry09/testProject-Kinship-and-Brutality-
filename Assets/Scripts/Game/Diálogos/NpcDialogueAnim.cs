@@ -25,6 +25,7 @@ public class NpcDialogueAnim : MonoBehaviour
     public Player player;
     Animator animator;
     public Rigidbody2D rg;
+    public MoverNPC npc;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,7 +46,7 @@ public class NpcDialogueAnim : MonoBehaviour
                 player.velocidade = 0f;
                 StartDialogue();
             }
-            else if (dialogueText.text == dialogueNpc[dialogueIndex] && Input.GetKeyDown(KeyCode.E))
+            else if (Input.GetKeyDown(KeyCode.E))
             {
                 NextDialogue();
             }
@@ -67,6 +68,7 @@ public class NpcDialogueAnim : MonoBehaviour
             dialogueIndex = 0;
             player.velocidade = speedPlayer;
             readyToSpeak = false;
+            npc.readyToAnim = false;
         }
     }
 
