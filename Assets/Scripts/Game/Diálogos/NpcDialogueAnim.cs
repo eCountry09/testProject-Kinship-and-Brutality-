@@ -18,6 +18,8 @@ public class NpcDialogueAnim : MonoBehaviour
 
     public bool readyToSpeak;
     public bool startDialogue;
+    public bool nextDialogue;
+    public bool finishDialogue;
 
     public float speedPlayer;
 
@@ -34,6 +36,8 @@ public class NpcDialogueAnim : MonoBehaviour
         rg = GetComponent<Rigidbody2D>();
         dialogueAnim.SetActive(false);
         speedPlayer = player.velocidade;
+
+        Debug.Log(dialogueNpc.Length);
     }
 
     // Update is called once per frame
@@ -46,8 +50,9 @@ public class NpcDialogueAnim : MonoBehaviour
                 player.velocidade = 0f;
                 StartDialogue();
             }
-            else if (Input.GetKeyDown(KeyCode.E))
+            else if (dialogueText.text == dialogueNpc[dialogueIndex] && Input.GetKeyDown(KeyCode.E))
             {
+                dialogueText.text = "";
                 NextDialogue();
             }
         }
@@ -59,6 +64,7 @@ public class NpcDialogueAnim : MonoBehaviour
 
         if (dialogueIndex < dialogueNpc.Length)
         {
+            Debug.Log(dialogueIndex);
             StartCoroutine(ShowDialogue());
         }
         else
@@ -67,8 +73,9 @@ public class NpcDialogueAnim : MonoBehaviour
             startDialogue = false;
             dialogueIndex = 0;
             player.velocidade = speedPlayer;
-            readyToSpeak = false;
             npc.readyToAnim = false;
+            readyToSpeak = false;
+            npc.readyToAnim = false;                                                                                                //drakejosh
         }
     }
 

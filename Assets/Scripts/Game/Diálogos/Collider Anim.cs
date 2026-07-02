@@ -4,7 +4,7 @@ public class ColliderAnim : MonoBehaviour
 {
     public NpcDialogueAnim npcDialogueAnim;
     public MoverNPC moverNPC;
-    public bool actDialogue;
+    public bool finishDialogue;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,15 +24,11 @@ public class ColliderAnim : MonoBehaviour
         {
             moverNPC.readyToAnim = true;
             npcDialogueAnim.player.velocidade = 0f;
-            actDialogue = false;
         }
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            actDialogue = true;
-        }
+        
     }
 }

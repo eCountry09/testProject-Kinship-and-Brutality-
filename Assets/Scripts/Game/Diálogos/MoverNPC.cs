@@ -37,6 +37,5 @@ public class MoverNPC : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         npcDialogueAnim.readyToSpeak = true;
-        //npcDialogueAnim.readyToSpeak = true;
     }
 }
